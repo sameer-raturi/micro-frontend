@@ -1,0 +1,9 @@
+.homeContent { 
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* Equivalent to grid-cols-4 */
+  gap: 1.25rem; 
+  .product {
+    height: 150px;
+    width: 150px;
+  }
+}
