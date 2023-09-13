@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { getProducts } from "../../products";
+import { currency, getProducts } from "../../products";
 
 import styles from "./homeContent.module.scss";
 
@@ -20,6 +20,17 @@ function HomeContent() {
             src={product.image}
             alt={product.name}
           />
+          <div className={styles.productDetails}>
+            <div className={styles.productName}>
+            {product.name}
+            </div>
+            <div className={styles.productPrice}>
+            {currency.format(product.price)}
+            </div>
+          </div>
+          <div className={styles.productDescription}>
+            {product.description}
+          </div>
         </div>
       ))}
     </div>

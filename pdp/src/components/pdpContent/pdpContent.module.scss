@@ -1,0 +1,24 @@
+.pdpContent {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* Equivalent to grid-cols-2 */
+  gap: 1.25rem;
+  .productDetails {
+    display: flex;
+    .productName {
+      font-weight: bold; /* Equivalent to font-bold in Tailwind CSS */
+      font-size: 1.875rem; /* Equivalent to text-3xl in Tailwind CSS (1.875rem is the default value for text-3xl) */
+      flex-grow: 1;
+    }
+    .productPrice {
+      font-weight: bold; /* Equivalent to font-bold in Tailwind CSS */
+      font-size: 1.875rem; /* Equivalent to text-3xl in Tailwind CSS (1.875rem is the default value for text-3xl) */
+      justify-content: flex-end;
+    }
+    .productDescription {
+      margin-top: 10px;
+    }
+    .productLongDescription {
+      margin-top: 10px;
+    }
+  }
+}

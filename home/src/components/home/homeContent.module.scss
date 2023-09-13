@@ -1,9 +1,25 @@
-.homeContent { 
+.homeContent {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)); /* Equivalent to grid-cols-4 */
-  gap: 1.25rem; 
-  .product {
-    height: 150px;
-    width: 150px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* Equivalent to grid-cols-4 */
+  gap: 1.25rem;
+  margin: 10px 0;
+  font-size: 1.2rem;
+  .productDetails {
+    display: flex;
+
+    .productName {
+      font-weight: bold;
+      flex-grow: 1;
+    }
+
+    .productPrice {
+      justify-content: flex-end;
+    }
+
+  }
+  .productDescription{
+    font-size: 0.875rem;
+    margin-top: 4px;
   }
 }
