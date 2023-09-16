@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 
 import { getProductById, currency } from "home/products";
-// import placeAddToCart from "addtocart/placeAddToCart";
+import placeAddToCart from "addToCart/placeAddToCart";
 import styles from "./pdpContent.module.scss";
 
 export default function PdpContent() {
@@ -23,13 +23,13 @@ export default function PdpContent() {
     }
   }, [id]);
 
-  // const addToCart = useRef(null);
+  const addToCart = useRef(null);
 
-  // useEffect(() => {
-  //   if (addToCart.current) {
-  //     placeAddToCart(addToCart.current, product.id);
-  //   }
-  // }, [product]);
+  useEffect(() => {
+    if (addToCart.current) {
+      placeAddToCart(addToCart.current, product.id);
+    }
+  }, [product]);
 
   if (!product) return null;
 
@@ -48,7 +48,7 @@ export default function PdpContent() {
           {currency.format(product.price)}
         </div>
       </div>
-      {/* <div ref={addToCart}></div> */}
+      <div ref={addToCart}></div>
       <div className={styles.productDescription}>{product.description}</div>
       <div className={styles.productLongDescription}>
         {product.longDescription}
