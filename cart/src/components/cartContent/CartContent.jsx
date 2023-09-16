@@ -1,24 +1,57 @@
-import React, { useEffect, useState } from "react";
-import { login, jwt } from "../../cart";
-import Login from "../login/Login";
-import MiniCart from "../miniCart/MiniCart";
+import React, { useState, useEffect } from "react";
 
-const CartContent = () => {
-  const [token, setToken] = useState("");
-  useEffect(() => {
-    // login("sameer", "47");
-    // jwt.subscribe returns an unsubscribe method which will run automatically on unmount
-    // here we have subscribe to this jwt whenever it recieves the value this will be
-    // automatically set inside our token and ui will get render again because of the state
-    return jwt.subscribe((val) => setToken(val ?? ""));
-  }, []);
+import { cart, clearCart } from "cart/cart";
+import { currency } from "home/products";
+
+import styles from "./cartContent.module.scss";
+
+export default function CartContent() {
+  const [items, setItems] = useState([]);
+
+  useEffect(
+    () => cart.subscribe((value) => setItems(value?.cartItems ?? [])),
+    []
+  );
+
   return (
     <div>
-      <Login />
-      <MiniCart />
-      JWT: {token}
+      <div className={styles.cart}>
+        {items.map((item) => (
+          <React.Fragment key={item.id}>
+            <div>{item.quantity}</div>
+            <img src={item.image} alt={item.name} className={styles.image} />
+            <div>{item.name}</div>
+            <div className={styles.itemPrice}>
+              {currency.format(item.quantity * item.price)}
+            </div>
+          </React.Fragment>
+        ))}
+      </div>
+      {items.length > 0 && (
+        <div>
+          <div className={styles.itemPrice} id="grand_total">
+            {currency.format(
+              items.reduce((a, v) => a + v.quantity * v.price, 0)
+            )}
+          </div>
+          <div className={styles.cartFooter}>
+            <button
+              id="clearcart"
+              className="bg-white border border-green-800 text-green-800 py-2 px-5 rounded-md text-sm"
+              onClick={clearCart}
+            >
+              Clear Cart
+            </button>
+
+            <button
+              className="bg-green-900 text-white py-2 px-5 rounded-md text-sm"
+              onClick={clearCart}
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
-};
-
-export default CartContent;
+}
