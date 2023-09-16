@@ -11,9 +11,12 @@ export default function MiniCart() {
 
   useEffect(() => {
     setItems(cart.value?.cartItems);
-    return cart.subscribe((c) => {
+    const subscription = cart.subscribe((c) => {
       setItems(c?.cartItems);
     });
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
   if (!items) return null;
@@ -35,7 +38,11 @@ export default function MiniCart() {
               {items.map((item) => (
                 <React.Fragment key={item.id}>
                   <div>{item.quantity}</div>
-                  <img src={item.image} alt={item.name} className={styles.image} />
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className={styles.image}
+                  />
                   <div>{item.name}</div>
                   <div className={styles.itemRight}>
                     {currency.format(item.quantity * item.price)}

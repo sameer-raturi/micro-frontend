@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { addToCart, useLoggedIn } from "cart/cart";
 
@@ -17,14 +18,18 @@ function HomeContent() {
   return (
     <div className={styles.homeContent}>
       {products.map((product) => (
-        <div className={styles.product} key={product.id} >
-          <img
-            style={{ height: "150px", width: "150px" }}
-            src={product.image}
-            alt={product.name}
-          />
+        <div className={styles.product} key={product.id}>
+          <Link to={`/product/${product.id}`}>
+            <img
+              style={{ height: "150px", width: "150px" }}
+              src={product.image}
+              alt={product.name}
+            />
+          </Link>
           <div className={styles.productDetails}>
-            <div className={styles.productName}>{product.name}</div>
+            <div className={styles.productName}>
+              <Link to={`/product/${product.id}`}>{product.name}</Link>
+            </div>
             <div className={styles.productPrice}>
               {currency.format(product.price)}
             </div>

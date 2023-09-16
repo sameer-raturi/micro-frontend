@@ -14,7 +14,7 @@ const Login = () => {
   return (
     <>
       <div onClick={() => setShowLogin(true)}>
-        <i class="ri-login-box-line"></i>
+        <i className="ri-login-box-line"></i>
         <div>press me to log in</div>
       </div>
       {showLogin && (

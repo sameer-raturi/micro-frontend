@@ -52,6 +52,7 @@ module.exports = (_, argv) => ({
         "./cart": './src/cart.js',
         "./Login": './src/components/login/Login.jsx',
         "./MiniCart": './src/components/miniCart/MiniCart.jsx',
+        './CartContent': './src/components/cartContent/CartContent.jsx',
       },
       shared: {
         ...deps,

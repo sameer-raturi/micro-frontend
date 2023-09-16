@@ -7,13 +7,6 @@ import Footer from "./components/footer";
 
 import "./index.css";
 import HomeContent from "./components/home";
+import MainLayout from "./pages/MainLayout";
 
-const App = () => (
-  <div className="container">
-    <Header />
-    {/* <div>Hey Yo!<br /> whats up <br />whats up<br /> whats up<br /></div> */}
-    <HomeContent />
-    <Footer />
-  </div>
-);
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<MainLayout />, document.getElementById("app"));
