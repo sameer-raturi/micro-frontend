@@ -45,10 +45,14 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       remotes: {
         home: "home@http://localhost:3000/remoteEntry.js",
-        pdp: "pdp@http://localhost:3000/remoteEntry.js",
-        cart: "cart@http://localhost:3000/remoteEntry.js",
+        pdp: "pdp@http://localhost:3001/remoteEntry.js",
+        cart: "cart@http://localhost:3002/remoteEntry.js",
       },
-      exposes: {},
+      exposes: {
+        "./cart": './src/cart.js',
+        "./Login": './src/components/login/Login.jsx',
+        "./MiniCart": './src/components/miniCart/MiniCart.jsx',
+      },
       shared: {
         ...deps,
         react: {

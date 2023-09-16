@@ -1,12 +1,20 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-import styles from './header.module.scss';
+import MiniCart from "cart/MiniCart";
+import Login from "cart/Login";
+
+import styles from "./header.module.scss";
 
 function Header(props) {
-  return <div className={styles.header}>Fidget Spinner World</div>;
+  return (
+    <div className={styles.header}>
+      <div >Fidget Spinner World</div>
+      <div>
+        <MiniCart />
+        <Login />
+      </div>
+    </div>
+  );
 }
-
-Header.propTypes = {};
 
 export default Header;
