@@ -1,6 +1,8 @@
 import React, { Suspense, useCallback, useState } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "remixicon/fonts/remixicon.css";
+
 import Footer from "home/Footer";
 
 import PdpContent from "./components/pdpContent/PdpContent";
