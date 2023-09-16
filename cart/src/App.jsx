@@ -11,7 +11,6 @@ import "./index.css";
 const App = () => (
   <div className="container">
     <Header />
-    {/* <div>Hey Yo!<br /> whats up <br />whats up<br /> whats up<br /></div> */}
     <CartContent />
     <Footer />
   </div>
